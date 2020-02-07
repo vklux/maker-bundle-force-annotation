@@ -18,9 +18,9 @@ composer require cweagans/composer-patches
 
 In your `composer.json`:
 
-```json
+```js
 {
-	// ....
+	// {...} composer.json content
     "extra": {
         "patches": {
             "symfony/maker-bundle": {
