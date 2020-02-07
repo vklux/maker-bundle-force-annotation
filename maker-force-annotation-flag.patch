@@ -1,0 +1,21 @@
+diff --git a/src/Maker/MakeEntity.php b/src/Maker/MakeEntity.php
+index b3ff274..6ccece2 100644
+--- a/src/Maker/MakeEntity.php
++++ b/src/Maker/MakeEntity.php
+@@ -75,6 +75,7 @@ final class MakeEntity extends AbstractMaker implements InputAwareMakerInterface
+             ->addOption('api-resource', 'a', InputOption::VALUE_NONE, 'Mark this class as an API Platform resource (expose a CRUD API for it)')
+             ->addOption('regenerate', null, InputOption::VALUE_NONE, 'Instead of adding new fields, simply generate the methods (e.g. getter/setter) for existing fields')
+             ->addOption('overwrite', null, InputOption::VALUE_NONE, 'Overwrite any existing getter/setter methods')
++            ->addOption('force-annotation',null,InputOption::VALUE_NONE,'Bypass annotations checking')
+             ->setHelp(file_get_contents(__DIR__.'/../Resources/help/MakeEntity.txt'))
+         ;
+ 
+@@ -146,7 +147,7 @@ final class MakeEntity extends AbstractMaker implements InputAwareMakerInterface
+             $generator->writeChanges();
+         }
+ 
+-        if (!$this->doesEntityUseAnnotationMapping($entityClassDetails->getFullName())) {
++        if (!$input->getOption('force-annotation') && !$this->doesEntityUseAnnotationMapping($entityClassDetails->getFullName())) {
+             throw new RuntimeCommandException(sprintf('Only annotation mapping is supported by make:entity, but the <info>%s</info> class uses a different format. If you would like this command to generate the properties & getter/setter methods, add your mapping configuration, and then re-run this command with the <info>--regenerate</info> flag.', $entityClassDetails->getFullName()));
+         }
+ 
