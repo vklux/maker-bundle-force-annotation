@@ -20,7 +20,7 @@ In your `composer.json`:
 
 ```js
 {
-	// {...} composer.json content
+    // {...} composer.json content
     "extra": {
         "patches": {
             "symfony/maker-bundle": {
