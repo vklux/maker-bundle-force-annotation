@@ -24,7 +24,7 @@ In your `composer.json`:
     "extra": {
         "patches": {
             "symfony/maker-bundle": {
-                "Provide flag to force annotation in make entity command": "https://raw.githubusercontent.com/PaulWeinsberg/maker-force-annotation/master/maker-force-annotation-flag.patch"
+                "Provide flag to force annotation in make entity command": "https://raw.githubusercontent.com/vklux/maker-bundle-force-annotation/master/maker-force-annotation-flag.patch"
             }
         }
     }
